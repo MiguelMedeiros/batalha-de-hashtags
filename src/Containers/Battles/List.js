@@ -1,33 +1,82 @@
 import React, { Component } from "react";
-// import { NavLink } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import Loading from "./../../components/Loading";
+
+let styles = {
+  contentPages: {
+    textAlign: "left",
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "0 30px",
+  },
+  battle: {
+    margin: "20px auto 40px",
+  },
+  battleTitle: {
+    textAlign: "left",
+    marginBottom: "10px",
+    fontSize: "30px",
+    fontFamily: "Bangers",
+    textShadow: "2px 3px 0px yellow",
+    color: "#282c34",
+    "& span": {
+      color: "#ba5563",
+    },
+  },
+  battleImage: {
+    width: "100%",
+    borderRadius: "10px",
+    boxShadow: "1px 1px 15px rgba(0,0,0,0.2)",
+  },
+};
 
 class List extends Component {
+  state = {
+    battles: null,
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    axios.get("/api/v1/battles").then(res => {
+      this.setState({ battles: res.data, isLoading: false });
+    });
+  }
+
   render() {
-    return (
-      <div className="content-pages">
-        <h1 className="title">Batalhas</h1>
-        <p>
-          Primeiro eu queria cumprimentar os internautas. -Oi Internautas!
-          Depois dizer que o meio ambiente é sem dúvida nenhuma uma ameaça ao
-          desenvolvimento sustentável. E isso significa que é uma ameaça pro
-          futuro do nosso planeta e dos nossos países. O desemprego beira 20%,
-          ou seja, 1 em cada 4 portugueses.
-        </p>
-        <p>
-          Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então
-          é... é... Já vivi muito sem dinheiro, já vivi muito com dinheiro.
-          -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha R$10
-          mil por mês. -Dilma: O que que é R$10 mil?
-        </p>
-        <p>
-          A população ela precisa da Zona Franca de Manaus, porque na Zona
-          franca de Manaus, não é uma zona de exportação, é uma zona para o
-          Brasil. Portanto ela tem um objetivo, ela evita o desmatamento, que é
-          altamente lucravito. Derrubar arvores da natureza é muito lucrativo!
-        </p>
-      </div>
-    );
+    const { classes } = this.props;
+    const { battles, isLoading } = this.state;
+    if (isLoading) {
+      return <Loading />;
+    } else {
+      return (
+        <div className={classes.contentPages}>
+          <h1 className="title">Batalhas</h1>
+          <p>
+            Fique ligado nas batalhas que estão ativas e nas que já foram
+            finalizadas!
+          </p>
+          {battles.map((row, index) => {
+            return (
+              <div className={classes.battle} key={row.id}>
+                <NavLink to={"/batalha/" + row.slug} className="navlink">
+                  <div className={classes.battleTitle}>
+                    <span>#{row.hashtag}</span> - {row.name}
+                  </div>
+                  <img
+                    className={classes.battleImage}
+                    src={row.image}
+                    alt={row.name}
+                  />
+                </NavLink>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
   }
 }
 
-export default List;
+export default withStyles(styles)(List);

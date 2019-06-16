@@ -21,6 +21,10 @@ class About extends Component {
           mil por mês. -Dilma: O que que é R$10 mil?
         </p>
         <h1 className="title">Criadores</h1>
+        <p>
+          Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar,
+          então:
+        </p>
         <div className="avatar-container">
           <Avatar
             name="Miguel Medeiros"

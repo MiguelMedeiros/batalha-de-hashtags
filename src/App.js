@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import Home from "./Containers/Pages/Home";
 import Rules from "./Containers/Pages/Rules";
 import About from "./Containers/Pages/About";
-// import Battle from "./Containers/Battles/Show";
+import Battle from "./Containers/Battles/Show";
 import Battles from "./Containers/Battles/List";
 // import Fighter from "./Containers/Fighters/Show";
 import Fighters from "./Containers/Fighters/List";
@@ -25,11 +25,10 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/sobre" component={About} />
             <Route exact path="/instrucoes" component={Rules} />
-            <Route exact path="/instrucoes" component={Rules} />
-            <Route exact path="/instrucoes" component={Rules} />
             <Route exact path="/batalhas" component={Battles} />
+            <Route path="/batalha/:slug" component={Battle} />
             <Route exact path="/personagens" component={Fighters} />
-            {/* <Route path="/batalha/:slug" component={Battle} />
+            {/*
             <Route path="/personagem/:slug" component={Fighter} /> */}
           </Switch>
         </main>

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   drawerHeader: {
     display: "flex",
     alignItems: "center",
-    padding: "0 8px",
+    // padding: "0 8px",
     ...theme.mixins.toolbar,
     justifyContent: "flex-start",
   },
@@ -53,7 +53,7 @@ function PersistentDrawerRight() {
   return (
     <div className="header">
       <CssBaseline />
-      <AppBar elevation={0} className={classes.appBar}>
+      <AppBar elevation={0} position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap className="header-title">
             <NavLink to={"/"} className="navlink">
