@@ -3,33 +3,51 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./Helpers/history";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Grid/Header";
+import Footer from "./components/Grid/Footer";
+import ScrollToTop from "./components/Basic/ScrollToTop";
+
+import { makeStyles } from "@material-ui/core/styles";
 
 // Containers
 import Home from "./Containers/Pages/Home";
 import Rules from "./Containers/Pages/Rules";
 import About from "./Containers/Pages/About";
+import Api from "./Containers/Pages/Api";
 import Battle from "./Containers/Battles/Show";
 import Battles from "./Containers/Battles/List";
-// import Fighter from "./Containers/Fighters/Show";
+import Fighter from "./Containers/Fighters/Show";
 import Fighters from "./Containers/Fighters/List";
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    margin: "0",
+    fontFamily: "Roboto",
+    minHeight: "calc(100vh - 114px)",
+    height: "100%",
+    minWidth: "320px",
+    background:
+      "linear-gradient(180deg, rgba(240, 247, 0, 1) 0%, rgba(241, 226, 3, 1) 11%, rgba(255, 141, 0, 1) 100%)",
+  },
+}));
+
 function App() {
+  const classes = useStyles();
   return (
     <React.Fragment>
       <Router history={history}>
+        <ScrollToTop />
         <Header />
-        <main className="content">
+        <main className={classes.root}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/sobre" component={About} />
             <Route exact path="/instrucoes" component={Rules} />
+            <Route exact path="/api" component={Api} />
             <Route exact path="/batalhas" component={Battles} />
             <Route path="/batalha/:slug" component={Battle} />
             <Route exact path="/personagens" component={Fighters} />
-            {/*
-            <Route path="/personagem/:slug" component={Fighter} /> */}
+            <Route path="/personagem/:slug" component={Fighter} />
           </Switch>
         </main>
         <Footer />

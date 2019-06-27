@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import Loading from "./../../components/Loading";
+import Loading from "../../components/Basic/Loading";
+import Title from "./../../components/Basic/Title";
+import Text from "./../../components/Basic/Text";
 
 let styles = {
   contentPages: {
     textAlign: "left",
     maxWidth: "800px",
     margin: "0 auto",
-    padding: "0 30px",
+    padding: "30px",
+    minHeight: "calc(100vh - 114px)",
   },
   battle: {
     margin: "20px auto 40px",
@@ -29,6 +32,9 @@ let styles = {
     width: "100%",
     borderRadius: "10px",
     boxShadow: "1px 1px 15px rgba(0,0,0,0.2)",
+  },
+  navlink: {
+    textDecoration: "none",
   },
 };
 
@@ -52,15 +58,18 @@ class List extends Component {
     } else {
       return (
         <div className={classes.contentPages}>
-          <h1 className="title">Batalhas</h1>
-          <p>
+          <Title h={"h1"} text="Batalhas" />
+          <Text>
             Fique ligado nas batalhas que estão ativas e nas que já foram
             finalizadas!
-          </p>
+          </Text>
           {battles.map((row, index) => {
             return (
               <div className={classes.battle} key={row.id}>
-                <NavLink to={"/batalha/" + row.slug} className="navlink">
+                <NavLink
+                  to={"/batalha/" + row.slug}
+                  className={classes.navlink}
+                >
                   <div className={classes.battleTitle}>
                     <span>#{row.hashtag}</span> - {row.name}
                   </div>

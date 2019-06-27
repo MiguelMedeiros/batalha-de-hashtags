@@ -1,7 +1,19 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "./node_modules/react";
+import { makeStyles } from "./node_modules/@material-ui/core/styles";
 
 const useStyles = makeStyles({
+  root: {
+    border: "4px solid #fff",
+    padding: "0px",
+    background: "#ba5563",
+    width: "100%",
+    margin: "10px 1% 0px 10px",
+    borderRadius: "0px 10px 10px 0px",
+    "&:first-child": {
+      margin: "10px 10px 0px 1%",
+      borderRadius: "10px 0px 0px 10px",
+    },
+  },
   life: props => ({
     width: props.width,
     float: props.float,
@@ -26,7 +38,7 @@ const LifeBar = ({ battleChallanger, floatPosition = [] }) => {
   };
   const classes = useStyles(props);
   return (
-    <div className="lifebar">
+    <div className={classes.root}>
       <div className={classes.life} />
     </div>
   );

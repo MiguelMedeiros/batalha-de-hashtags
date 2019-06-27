@@ -35,6 +35,39 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     background: "#282c34",
   },
+  headerTitle: {
+    flexGrow: 1,
+    fontFamily: "Luckiest Guy",
+    "& a": {
+      color: "#fff",
+    },
+  },
+  header: {
+    display: "flex",
+  },
+  drawerPaper: {
+    width: "230px",
+  },
+  headerDesktop: {
+    display: "none",
+    "@media screen and (min-width: 768px)": {
+      display: "inline-block",
+    },
+  },
+  navlink: {
+    color: "#000",
+    textDecoration: "none",
+    textTransform: "none",
+    "@media screen and (min-width: 768px)": {
+      color: "#fff",
+    },
+  },
+  headerMobile: {
+    display: "inline-block",
+    "@media screen and (min-width: 768px)": {
+      display: "none",
+    },
+  },
 }));
 
 function PersistentDrawerRight() {
@@ -51,43 +84,43 @@ function PersistentDrawerRight() {
   }
 
   return (
-    <div className="header">
+    <div className={classes.header}>
       <CssBaseline />
       <AppBar elevation={0} position="static" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap className="header-title">
-            <NavLink to={"/"} className="navlink">
+          <Typography variant="h6" noWrap className={classes.headerTitle}>
+            <NavLink to={"/"} className={classes.navlink}>
               Batalha de Hashtags
             </NavLink>
           </Typography>
-          <div className="header-desktop">
+          <div className={classes.headerDesktop}>
             <Button color="inherit" className="button">
-              <NavLink to={"/"} className="navlink">
+              <NavLink to={"/"} className={classes.navlink}>
                 Home
               </NavLink>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/instrucoes"} className="navlink">
+              <NavLink to={"/instrucoes"} className={classes.navlink}>
                 Instruções
               </NavLink>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/batalhas"} className="navlink">
+              <NavLink to={"/batalhas"} className={classes.navlink}>
                 Batalhas
               </NavLink>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/personagens"} className="navlink">
+              <NavLink to={"/personagens"} className={classes.navlink}>
                 Personagens
               </NavLink>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/sobre"} className="navlink">
+              <NavLink to={"/sobre"} className={classes.navlink}>
                 Sobre
               </NavLink>
             </Button>
           </div>
-          <div className="header-mobile">
+          <div className={classes.headerMobile}>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
@@ -122,7 +155,7 @@ function PersistentDrawerRight() {
         </div>
         <Divider />
         <List>
-          <NavLink to={"/"} className="navlink">
+          <NavLink to={"/"} className={classes.navlink}>
             <ListItem button key={1}>
               <ListItemIcon>
                 <HomeIcon />
@@ -130,7 +163,7 @@ function PersistentDrawerRight() {
               <ListItemText primary="Home" />
             </ListItem>
           </NavLink>
-          <NavLink to={"/instrucoes"} className="navlink">
+          <NavLink to={"/instrucoes"} className={classes.navlink}>
             <ListItem button key={1}>
               <ListItemIcon>
                 <AssignmentIcon />
@@ -138,7 +171,7 @@ function PersistentDrawerRight() {
               <ListItemText primary="Instruções" />
             </ListItem>
           </NavLink>
-          <NavLink to={"/batalhas"} className="navlink">
+          <NavLink to={"/batalhas"} className={classes.navlink}>
             <ListItem button key={4}>
               <ListItemIcon>
                 <OutlinedFlag />
@@ -146,7 +179,7 @@ function PersistentDrawerRight() {
               <ListItemText primary="Batalhas" />
             </ListItem>
           </NavLink>
-          <NavLink to={"/personagens"} className="navlink">
+          <NavLink to={"/personagens"} className={classes.navlink}>
             <ListItem button key={3}>
               <ListItemIcon>
                 <InsertEmoticon />
@@ -154,7 +187,7 @@ function PersistentDrawerRight() {
               <ListItemText primary="Personagens" />
             </ListItem>
           </NavLink>
-          <NavLink to={"/sobre"} className="navlink">
+          <NavLink to={"/sobre"} className={classes.navlink}>
             <ListItem button key={2}>
               <ListItemIcon>
                 <HelpIcon />
@@ -163,7 +196,7 @@ function PersistentDrawerRight() {
             </ListItem>
           </NavLink>
           {/* <Divider />
-          <NavLink to={"/sugerir-batalha"} className="navlink">
+          <NavLink to={"/sugerir-batalha"} className={classes.navlink}>
             <ListItem button key={5}>
               <ListItemIcon>
                 <AssignmentIcon />
@@ -171,7 +204,7 @@ function PersistentDrawerRight() {
               <ListItemText primary="Sugerir Batalha" />
             </ListItem>
           </NavLink>
-          <NavLink to={"/sugerir-personagem"} className="navlink">
+          <NavLink to={"/sugerir-personagem"} className={classes.navlink}>
             <ListItem button key={6}>
               <ListItemIcon>
                 <AssignmentIndIcon />

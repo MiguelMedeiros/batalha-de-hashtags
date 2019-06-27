@@ -1,33 +1,87 @@
 import React, { Component } from "react";
-// import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { withStyles } from "@material-ui/core/styles";
+import { NavLink } from "react-router-dom";
+import Loading from "../../components/Basic/Loading";
+import Grid from "@material-ui/core/Grid";
+import Title from "./../../components/Basic/Title";
+import Text from "./../../components/Basic/Text";
+
+let styles = {
+  root: {
+    maxWidth: "800px",
+    margin: "auto",
+    textAlign: "left",
+    padding: "30px",
+  },
+  navlink: {
+    textDecoration: "none",
+  },
+  challanger: {
+    padding: "50px 35px",
+    transition: "50ms all ease-in",
+    "&:hover": {
+      transform: "scale(1.025)",
+      "& h1": {
+        textShadow: "2px 3px 0px yellow",
+        color: "#ba5563",
+      },
+    },
+    "& img": {
+      maxWidth: "100%",
+      margin: "auto",
+    },
+  },
+};
 
 class List extends Component {
+  state = {
+    challangers: null,
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    axios.get("/api/v1/challangers").then(res => {
+      this.setState({ challangers: res.data, isLoading: false });
+    });
+  }
   render() {
-    return (
-      <div className="content-pages">
-        <h1 className="title">Personagens</h1>
-        <p>
-          Primeiro eu queria cumprimentar os internautas. -Oi Internautas!
-          Depois dizer que o meio ambiente é sem dúvida nenhuma uma ameaça ao
-          desenvolvimento sustentável. E isso significa que é uma ameaça pro
-          futuro do nosso planeta e dos nossos países. O desemprego beira 20%,
-          ou seja, 1 em cada 4 portugueses.
-        </p>
-        <p>
-          Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então
-          é... é... Já vivi muito sem dinheiro, já vivi muito com dinheiro.
-          -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha R$10
-          mil por mês. -Dilma: O que que é R$10 mil?
-        </p>
-        <p>
-          A população ela precisa da Zona Franca de Manaus, porque na Zona
-          franca de Manaus, não é uma zona de exportação, é uma zona para o
-          Brasil. Portanto ela tem um objetivo, ela evita o desmatamento, que é
-          altamente lucravito. Derrubar arvores da natureza é muito lucrativo!
-        </p>
-      </div>
-    );
+    const { classes } = this.props;
+    const { challangers, isLoading } = this.state;
+
+    if (isLoading) {
+      return <Loading />;
+    } else {
+      return (
+        <div className={classes.root}>
+          <Title h={"h1"} text="Personagens" />
+          <Text>Conheça todos os nossos Textersonagens!</Text>
+          <Grid container className={classes.challangers}>
+            {challangers.map((row, index) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  key={row.id}
+                  className={classes.challanger}
+                >
+                  <NavLink
+                    to={"/personagem/" + row.slug}
+                    className={classes.navlink}
+                  >
+                    <Title h={"h2"} text={row.name} />
+                    <Text>{row.content}</Text>
+                    <img src={row.avatar_right} alt={row.name} />
+                  </NavLink>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </div>
+      );
+    }
   }
 }
 
-export default List;
+export default withStyles(styles)(List);
