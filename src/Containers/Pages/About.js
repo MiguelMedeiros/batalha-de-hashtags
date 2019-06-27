@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Avatar from "../../components/Basic/Avatar";
+import Avatar from "../../Components/Basic/Avatar";
 import { NavLink } from "react-router-dom";
-import Title from "./../../components/Basic/Title";
-import Text from "./../../components/Basic/Text";
+import Title from "./../../Components/Basic/Title";
+import Text from "./../../Components/Basic/Text";
 
 let styles = {
   root: {

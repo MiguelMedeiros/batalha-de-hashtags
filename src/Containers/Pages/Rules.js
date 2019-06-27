@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Title from "./../../components/Basic/Title";
-import Text from "./../../components/Basic/Text";
+import Title from "./../../Components/Basic/Title";
+import Text from "./../../Components/Basic/Text";
 // import { NavLink } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 

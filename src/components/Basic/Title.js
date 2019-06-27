@@ -1,5 +1,5 @@
-import React, { Component } from "./node_modules/react";
-import { withStyles } from "./node_modules/@material-ui/core/styles";
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
 
 // $font-1: "Permanent Marker";
 // $font-2: "Luckiest Guy";

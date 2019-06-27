@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import Loading from "../../components/Basic/Loading";
+import Loading from "../../Components/Basic/Loading";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { NavLink } from "react-router-dom";
 import Fab from "@material-ui/core/Fab";
-import Avatar from "../../components/Basic/Avatar";
-import Title from "../../components/Basic/Title";
-import Text from "../../components/Basic/Text";
+import Avatar from "../../Components/Basic/Avatar";
+import Title from "../../Components/Basic/Title";
+import Text from "../../Components/Basic/Text";
 
 let styles = {
   root: {

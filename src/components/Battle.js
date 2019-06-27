@@ -1,6 +1,6 @@
-import React, { Component } from "./node_modules/react";
-import { withStyles } from "./node_modules/@material-ui/core/styles";
-import axios from "./node_modules/axios";
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import axios from "axios";
 import Loading from "./Basic/Loading";
 import LifeBar from "./Battle/LifeBar";
 import Fighters from "./Battle/Fighters";

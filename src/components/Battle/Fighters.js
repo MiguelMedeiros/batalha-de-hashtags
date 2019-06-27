@@ -1,6 +1,6 @@
-import React from "./node_modules/react";
-import { makeStyles } from "./node_modules/@material-ui/core/styles";
-import { TwitterShareButton } from "./node_modules/react-twitter-embed";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { TwitterShareButton } from "react-twitter-embed";
 
 const useStyles = makeStyles({
   life: props => ({

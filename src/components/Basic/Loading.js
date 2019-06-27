@@ -1,9 +1,6 @@
-import React from "./node_modules/react";
-import {
-  makeStyles,
-  withStyles,
-} from "./node_modules/@material-ui/core/styles";
-import LinearProgress from "./node_modules/@material-ui/core/LinearProgress";
+import React from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const ColorLinearProgress = withStyles({
   colorPrimary: {

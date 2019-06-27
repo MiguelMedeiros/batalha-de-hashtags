@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import { makeStyles } from "./node_modules/@material-ui/core/styles";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   battleAudience: {

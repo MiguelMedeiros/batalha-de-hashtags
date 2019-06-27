@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import Loading from "./../../components/Basic/Loading";
-import LifeBar from "./../../components/Battle/LifeBar";
-import Fighters from "./../../components/Battle/Fighters";
-import Audience from "./../../components/Battle/Audience";
-import Tweets from "./../../components/Battle/Tweets";
+import Loading from "./../../Components/Basic/Loading";
+import LifeBar from "./../../Components/Battle/LifeBar";
+import Fighters from "./../../Components/Battle/Fighters";
+import Audience from "./../../Components/Battle/Audience";
+import Tweets from "./../../Components/Battle/Tweets";
 
 let styles = {
   contentPages: {

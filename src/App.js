@@ -3,9 +3,9 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./Helpers/history";
 
-import Header from "./components/Grid/Header";
-import Footer from "./components/Grid/Footer";
-import ScrollToTop from "./components/Basic/ScrollToTop";
+import Header from "./Components/Grid/Header";
+import Footer from "./Components/Grid/Footer";
+import ScrollToTop from "./Components/Basic/ScrollToTop";
 
 import { makeStyles } from "@material-ui/core/styles";
 

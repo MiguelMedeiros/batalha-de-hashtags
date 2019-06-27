@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
-import Loading from "../../components/Basic/Loading";
-import Title from "../../components/Basic/Title";
-import Text from "./../../components/Basic/Text";
+import Loading from "../../Components/Basic/Loading";
+import Title from "../../Components/Basic/Title";
+import Text from "./../../Components/Basic/Text";
 
 let styles = {
   root: {
