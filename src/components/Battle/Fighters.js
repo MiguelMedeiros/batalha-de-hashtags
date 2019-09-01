@@ -7,17 +7,17 @@ const useStyles = makeStyles({
     width: props.width,
     float: props.float,
     background: "yellow",
-    height: "30px",
+    height: "30px"
   }),
   flipImage: {
-    transform: "scaleX(-1)",
+    transform: "scaleX(-1)"
   },
   battleFighters: {
     display: "flex",
     justifyContent: "space-evenly",
     "& img": {
-      maxWidth: "100%",
-    },
+      maxWidth: "100%"
+    }
   },
   hashtag: {
     textShadow: "2px 3px 0px yellow",
@@ -26,8 +26,8 @@ const useStyles = makeStyles({
     fontFamily: "Bangers",
     display: "block",
     "@media screen and (min-width: 768px)": {
-      display: "inline-block",
-    },
+      display: "inline-block"
+    }
   },
   twitterShare: {
     margin: "auto 20px",
@@ -35,15 +35,15 @@ const useStyles = makeStyles({
     position: "relative",
     display: "block",
     "@media screen and (min-width: 768px)": {
-      display: "inline-block",
-    },
+      display: "inline-block"
+    }
   },
   fighterImage: {
-    maxHeight: "520px",
-  },
+    maxHeight: "520px"
+  }
 });
 
-const Fighters = ({ battleChallangers, hastagBattle, slug }) => {
+export default function Fighters({ battleChallangers, hastagBattle, slug }) {
   const classes = useStyles();
   return (
     <div className={classes.battleFighters}>
@@ -55,7 +55,7 @@ const Fighters = ({ battleChallangers, hastagBattle, slug }) => {
               url={window.location.href}
               options={{
                 text: "#" + hastagBattle + " #" + x.hashtag,
-                size: "large",
+                size: "large"
                 // via: "saurabhnemade",
                 // screenName: "Clique aqui para compartilhar",
               }}
@@ -72,6 +72,4 @@ const Fighters = ({ battleChallangers, hastagBattle, slug }) => {
       ))}
     </div>
   );
-};
-
-export default Fighters;
+}

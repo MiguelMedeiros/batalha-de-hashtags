@@ -27,11 +27,11 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     minWidth: "320px",
     background:
-      "linear-gradient(180deg, rgba(240, 247, 0, 1) 0%, rgba(241, 226, 3, 1) 11%, rgba(255, 141, 0, 1) 100%)",
-  },
+      "linear-gradient(180deg, rgba(240, 247, 0, 1) 0%, rgba(241, 226, 3, 1) 11%, rgba(255, 141, 0, 1) 100%)"
+  }
 }));
 
-function App() {
+export default function App() {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -55,5 +55,3 @@ function App() {
     </React.Fragment>
   );
 }
-
-export default App;

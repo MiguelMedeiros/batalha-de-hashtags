@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -30,47 +30,47 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     // padding: "0 8px",
     ...theme.mixins.toolbar,
-    justifyContent: "flex-start",
+    justifyContent: "flex-start"
   },
   appBar: {
-    background: "#282c34",
+    background: "#282c34"
   },
   headerTitle: {
     flexGrow: 1,
     fontFamily: "Luckiest Guy",
     "& a": {
-      color: "#fff",
-    },
+      color: "#fff"
+    }
   },
   header: {
-    display: "flex",
+    display: "flex"
   },
   drawerPaper: {
-    width: "230px",
+    width: "230px"
   },
   headerDesktop: {
     display: "none",
     "@media screen and (min-width: 768px)": {
-      display: "inline-block",
-    },
+      display: "inline-block"
+    }
   },
   navlink: {
     color: "#000",
     textDecoration: "none",
     textTransform: "none",
     "@media screen and (min-width: 768px)": {
-      color: "#fff",
-    },
+      color: "#fff"
+    }
   },
   headerMobile: {
     display: "inline-block",
     "@media screen and (min-width: 768px)": {
-      display: "none",
-    },
-  },
+      display: "none"
+    }
+  }
 }));
 
-function PersistentDrawerRight() {
+export default function PersistentDrawerRight() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -89,35 +89,35 @@ function PersistentDrawerRight() {
       <AppBar elevation={0} position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.headerTitle}>
-            <NavLink to={"/"} className={classes.navlink}>
+            <Link to={"/"} className={classes.navlink}>
               Batalha de Hashtags
-            </NavLink>
+            </Link>
           </Typography>
           <div className={classes.headerDesktop}>
             <Button color="inherit" className="button">
-              <NavLink to={"/"} className={classes.navlink}>
+              <Link to={"/"} className={classes.navlink}>
                 Home
-              </NavLink>
+              </Link>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/instrucoes"} className={classes.navlink}>
+              <Link to={"/instrucoes"} className={classes.navlink}>
                 Instruções
-              </NavLink>
+              </Link>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/batalhas"} className={classes.navlink}>
+              <Link to={"/batalhas"} className={classes.navlink}>
                 Batalhas
-              </NavLink>
+              </Link>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/personagens"} className={classes.navlink}>
+              <Link to={"/personagens"} className={classes.navlink}>
                 Personagens
-              </NavLink>
+              </Link>
             </Button>
             <Button color="inherit" className="button">
-              <NavLink to={"/sobre"} className={classes.navlink}>
+              <Link to={"/sobre"} className={classes.navlink}>
                 Sobre
-              </NavLink>
+              </Link>
             </Button>
           </div>
           <div className={classes.headerMobile}>
@@ -141,7 +141,7 @@ function PersistentDrawerRight() {
         anchor="right"
         open={open}
         classes={{
-          paper: "drawer-paper",
+          paper: "drawer-paper"
         }}
       >
         <div>
@@ -155,67 +155,65 @@ function PersistentDrawerRight() {
         </div>
         <Divider />
         <List>
-          <NavLink to={"/"} className={classes.navlink}>
+          <Link to={"/"} className={classes.navlink}>
             <ListItem button key={1}>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
-          </NavLink>
-          <NavLink to={"/instrucoes"} className={classes.navlink}>
+          </Link>
+          <Link to={"/instrucoes"} className={classes.navlink}>
             <ListItem button key={1}>
               <ListItemIcon>
                 <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary="Instruções" />
             </ListItem>
-          </NavLink>
-          <NavLink to={"/batalhas"} className={classes.navlink}>
+          </Link>
+          <Link to={"/batalhas"} className={classes.navlink}>
             <ListItem button key={4}>
               <ListItemIcon>
                 <OutlinedFlag />
               </ListItemIcon>
               <ListItemText primary="Batalhas" />
             </ListItem>
-          </NavLink>
-          <NavLink to={"/personagens"} className={classes.navlink}>
+          </Link>
+          <Link to={"/personagens"} className={classes.navlink}>
             <ListItem button key={3}>
               <ListItemIcon>
                 <InsertEmoticon />
               </ListItemIcon>
               <ListItemText primary="Personagens" />
             </ListItem>
-          </NavLink>
-          <NavLink to={"/sobre"} className={classes.navlink}>
+          </Link>
+          <Link to={"/sobre"} className={classes.navlink}>
             <ListItem button key={2}>
               <ListItemIcon>
                 <HelpIcon />
               </ListItemIcon>
               <ListItemText primary="Sobre" />
             </ListItem>
-          </NavLink>
+          </Link>
           {/* <Divider />
-          <NavLink to={"/sugerir-batalha"} className={classes.navlink}>
+          <Link to={"/sugerir-batalha"} className={classes.navlink}>
             <ListItem button key={5}>
               <ListItemIcon>
                 <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary="Sugerir Batalha" />
             </ListItem>
-          </NavLink>
-          <NavLink to={"/sugerir-personagem"} className={classes.navlink}>
+          </Link>
+          <Link to={"/sugerir-personagem"} className={classes.navlink}>
             <ListItem button key={6}>
               <ListItemIcon>
                 <AssignmentIndIcon />
               </ListItemIcon>
               <ListItemText primary="Sugerir Personagem" />
             </ListItem>
-          </NavLink> */}
+          </Link> */}
         </List>
       </Drawer>
     </div>
   );
 }
-
-export default PersistentDrawerRight;

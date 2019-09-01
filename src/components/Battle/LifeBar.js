@@ -11,21 +11,21 @@ const useStyles = makeStyles({
     borderRadius: "0px 10px 10px 0px",
     "&:first-child": {
       margin: "10px 10px 0px 1%",
-      borderRadius: "10px 0px 0px 10px",
-    },
+      borderRadius: "10px 0px 0px 10px"
+    }
   },
   life: props => ({
     width: props.width,
     float: props.float,
     background: "yellow",
-    height: "30px",
+    height: "30px"
   }),
   flipImage: {
-    transform: "scaleX(-1)",
-  },
+    transform: "scaleX(-1)"
+  }
 });
 
-const LifeBar = ({ battleChallanger, floatPosition = [] }) => {
+export default function LifeBar({ battleChallanger, floatPosition = [] }) {
   let width =
     (battleChallanger.health_point / battleChallanger.max_health_point) * 100;
 
@@ -34,7 +34,7 @@ const LifeBar = ({ battleChallanger, floatPosition = [] }) => {
   // }
   const props = {
     width: width + "%",
-    float: floatPosition,
+    float: floatPosition
   };
   const classes = useStyles(props);
   return (
@@ -42,6 +42,4 @@ const LifeBar = ({ battleChallanger, floatPosition = [] }) => {
       <div className={classes.life} />
     </div>
   );
-};
-
-export default LifeBar;
+}
